@@ -24,7 +24,7 @@ def calc_hashes(path):
     return total_files, duplicates
 
 
-def find_dup(path):
+def find_duplicates(path):
     total_files, duplicates = calc_hashes(path)
     print("Number of files found: {}".format(total_files))
     print("Number of duplicates found: {}".format(duplicates))
