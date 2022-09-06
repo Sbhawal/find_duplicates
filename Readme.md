@@ -17,6 +17,11 @@ Python package to find duplicate files in a directory.
 - [ ] Add documentation
 - [ ] Publish to PyPI
 
-# CHANGELOG
+# CHANGELOG 0.0.0 -> 0.0.1
+
+- Added Readme and Changelog
+- Added function to find duplicates in a folder.
+
+---
 
 Snehaan Bhawal - 2020-04-01
