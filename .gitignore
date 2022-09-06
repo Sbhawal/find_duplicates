@@ -1,0 +1,4 @@
+test_folder
+.ipynb_checkpoints
+*.ipynb
+__pycache__
