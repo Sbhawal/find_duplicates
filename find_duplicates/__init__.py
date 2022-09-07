@@ -24,21 +24,6 @@ def calc_hashes(path):
     return total_files, duplicates
 
 
-def find_duplicates(path):
-    total_files, duplicates = calc_hashes(path)
-    print("Number of files found: {}".format(total_files))
-    print("Number of duplicates found: {}".format(duplicates))
-    display_record()
-    
-    
-    
-def export(path):
-    global hash_dict
-    with open(path, 'w') as f:
-        writer = csv.writer(f)
-        for key, value in hash_dict.items():
-            writer.writerow([key, value])
-
 def get_space(size):
     if size < 1024:
         return "{} B".format(size)
@@ -49,7 +34,16 @@ def get_space(size):
     else:
         return "{:.3f} GB".format(size/1024/1024/1024)
     
-        
+    
+    
+def export(path):
+    global hash_dict
+    with open(path, 'w') as f:
+        writer = csv.writer(f)
+        for key, value in hash_dict.items():
+            writer.writerow([key, value])
+            
+            
 def display_record():
     global hash_dict
     total_space = 0
@@ -62,6 +56,15 @@ def display_record():
             total_space += os.path.getsize(value[0])*len(value)-1
             for i in value:
                 print("{}".format(cwd+i))
-                
-    print("\nTOTAL SPACE CONSUMED BY DUPLICATES :", get_space(total_space))
-                
+    print("\n---------------------------------------------------------------------------------------------------------------------")
+    print("\nTOTAL SPACE CONSUMED BY DUPLICATES :", get_space(total_space))                
+
+
+def find_duplicates(path):
+    total_files, duplicates = calc_hashes(path)
+    print("Number of files found: {}".format(total_files))
+    print("Number of duplicates found: {}".format(duplicates))
+    display_record()
+    
+    
+    
