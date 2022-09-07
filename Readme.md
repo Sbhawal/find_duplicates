@@ -3,7 +3,7 @@
 Python package to find duplicate files in a directory.
 
 ## Installation
-
+`pip install git+https://github.com/Sbhawal/find_duplicates.git`
 ## Dependencies
 
 ## Usage
