@@ -2,7 +2,7 @@ import os, csv
 from imohash import hashfile
 
 hash_dict = {}
-cwd = os.getcwd()
+path = ''
 total_files = 0
 duplicates = 0
 
@@ -46,6 +46,7 @@ def export(path):
             
 def display_record():
     global hash_dict
+    global path
     total_space = 0
     print("\nDuplicate files:")
     for key, value in hash_dict.items():
@@ -55,12 +56,14 @@ def display_record():
             print("Space consumed: {}".format(get_space(os.path.getsize(value[0])*len(value))))
             total_space += os.path.getsize(value[0])*len(value)-1
             for i in value:
-                print("{}".format(cwd+i))
+                print("{}".format(path+i))
     print("\n---------------------------------------------------------------------------------------------------------------------")
     print("\nTOTAL SPACE CONSUMED BY DUPLICATES :", get_space(total_space))                
 
 
-def find_duplicates(path):
+def find_duplicates():
+    global path
+    path = input("Enter the path to search for duplicates: ")
     total_files, duplicates = calc_hashes(path)
     print("Number of files found: {}".format(total_files))
     print("Number of duplicates found: {}".format(duplicates))
